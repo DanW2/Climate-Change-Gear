@@ -404,12 +404,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fb3757795efbdc41bb73749f01ee2f0, type: 3}
+  m_Script: {fileID: 11500000, guid: ea5cd7cbf94e78b42899fb29ccc8e3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1016688949}
-  forwardForce: 500
-  sideForce: 500
+  player: {fileID: 1016688948}
+  offset: {x: 0, y: 0, z: -5}
 --- !u!1 &1016688944
 GameObject:
   m_ObjectHideFlags: 0
