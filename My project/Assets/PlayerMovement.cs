@@ -12,9 +12,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()  // Use fixed update for physics.
     {
-        //Add a forward force
-        rb.AddForce(0, 0, forwardForce * Time.deltaTime); 
-
         if(Input.GetKey("d")){
             rb.AddForce(sideForce * Time.deltaTime, 0, 0);
 
@@ -23,6 +20,14 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKey("a")){
             rb.AddForce(-sideForce * Time.deltaTime, 0, 0);
 
+        }
+
+        if(Input.GetKey("w")){
+            rb.AddForce(0, 0, forwardForce * Time.deltaTime);
+        }
+
+        if(Input.GetKey("s")){
+            rb.AddForce(0, 0, -forwardForce * Time.deltaTime);
         }
     }
 }
