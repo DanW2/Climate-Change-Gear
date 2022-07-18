@@ -46,10 +46,10 @@ public class BikeMovement : MonoBehaviour
 
 
 
-        if(movementDirection != Vector3.zero){    //Check if moving
-            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-        }
+        //if(movementDirection != Vector3.zero){    //Check if moving
+        //    Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        //}
         //This is to rotate to direction moving
 
     }
