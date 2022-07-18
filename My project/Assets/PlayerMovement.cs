@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float forwardForce = 500f;
     public float sideForce = 500f;
+    public float upForce = 1f;
+    public bool grounded = true;
 
     // Update is called once per frame
     void FixedUpdate()  // Use fixed update for physics.
@@ -30,6 +32,10 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(0, 0, -forwardForce * Time.deltaTime);
         }
 
-        if(Input.GetKey(""))
+        if(Input.GetKeyDown("space") && grounded){
+        Vector3 jump = new Vector3(0.0f, 1.0f, 0.0f);
+        rb.AddForce(jump*upForce, ForceMode.Impulse);
+        grounded = false;
+        }
     }
 }
