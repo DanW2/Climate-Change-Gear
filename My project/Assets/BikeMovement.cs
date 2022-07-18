@@ -23,8 +23,8 @@ public class BikeMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal"); // Unity logic to record input as -1 0 or 1 for horizontal movement.
         float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
-       // float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed; // This is for controller input.
+        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput*speed);
+        //float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed; // This is for controller input.
         movementDirection.Normalize(); //Stops the speed exceeding 1 for example diagonol.
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
@@ -38,7 +38,7 @@ public class BikeMovement : MonoBehaviour
             }
         }
 
-        Vector3 velo = movementDirection;
+        Vector3 velo = movementDirection*speed;
         velo.y = ySpeed;
 
         cController.Move(velo * Time.deltaTime);
@@ -46,10 +46,10 @@ public class BikeMovement : MonoBehaviour
 
 
 
-        //if(movementDirection != Vector3.zero){    //Check if moving
-        //    Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-        //}
+        if(movementDirection != Vector3.zero){    //Check if moving
+            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
         //This is to rotate to direction moving
 
     }
