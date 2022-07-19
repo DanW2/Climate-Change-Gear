@@ -23,15 +23,14 @@ public class BikeMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal"); // Unity logic to record input as -1 0 or 1 for horizontal movement.
         float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput*speed);
-        //float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed; // This is for controller input.
-        movementDirection.Normalize(); //Stops the speed exceeding 1 for example diagonol.
+        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+        movementDirection.Normalize(); 
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
 
         if(cController.isGrounded){
 
-            ySpeed = -0.5f;
+           // ySpeed = -0.5f;
 
             if(Input.GetButtonDown("Jump")){
                 ySpeed = jumpSpeed;
