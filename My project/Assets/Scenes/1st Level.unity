@@ -290,8 +290,8 @@ GameObject:
   - component: {fileID: 508914936}
   - component: {fileID: 508914935}
   - component: {fileID: 508914934}
-  - component: {fileID: 508914933}
   - component: {fileID: 508914932}
+  - component: {fileID: 508914933}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -329,10 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff432203584dd04ab6cf0d7331965d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  rotationSpeed: 0.3
-  jumpSpeed: 10
-  gravityStrength: 5
+  controller: {fileID: 508914932}
 --- !u!23 &508914934
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -498,7 +495,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19532
+  m_Name: pb_Mesh17790
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

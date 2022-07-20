@@ -4,64 +4,46 @@ using UnityEngine;
 
 public class BikeMovement : MonoBehaviour
 {
+    public CharacterController controller;
+    private Vector3 playerVelocity;
+    private bool groundedPlayer;
+    private float groundedFixForce = -0.7f;          // Needed to fix a Unity error where it needs enough force with the floor to detect grounded.
+    private float playerSpeed = 0.02f;
+    private float jumpHeight = 1.0f;
+    private float gravityValue = -9.81f;
 
-    public float speed;
-    public float rotationSpeed;
-    public float jumpSpeed;
-    public float gravityStrength;
-
-    private CharacterController cController; // Unity implemented class to deal with movement.
-    private float ySpeed;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        cController = GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(transform != null){
-            transform.Rotate(0, Input.GetAxis("Horizontal") * rotationSpeed, 0);
-            var forward = transform.TransformDirection(Vector3.forward);
-            float curSpeed = speed * Input.GetAxis("Vertical");
-            cController.SimpleMove(forward * curSpeed);
+        groundedPlayer = controller.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = groundedFixForce;
         }
 
+        //Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+       // controller.Move(move * Time.deltaTime * playerSpeed);
 
-        //float horizontalInput = Input.GetAxis("Horizontal"); // Unity logic to record input as -1 0 or 1 for horizontal movement.
-        //float verticalInput = Input.GetAxis("Vertical");
+        //if (move != Vector3.zero)
+       // {
+        //    gameObject.transform.forward = move;
+        //}
 
-        // Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
-       // movementDirection.Normalize(); 
-
-
-
-        //ySpeed += (Physics.gravity.y * gravityStrength) * Time.deltaTime;
-
-        if(cController.isGrounded){
-
-           // ySpeed = -0.5f;
-
-            if(Input.GetButtonDown("Jump")){
-                ySpeed = jumpSpeed;
-            }
+        transform.Rotate(0, Input.GetAxis("Horizontal")  * .2f, 0);
+        var forward = transform.TransformDirection((Vector3.forward)*Input.GetAxis("Vertical")*playerSpeed);
+        controller.Move(forward);
+        // Changes the height position of the player..
+        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue - groundedFixForce);
         }
 
-        // Vector3 velo = movementDirection*speed;
-        //velo.y = ySpeed;
-
-        //cController.Move(velo * Time.deltaTime);
-
-
-
-
-        //if(movementDirection != Vector3.zero){    //Check if moving
-        //    Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-       // }
-        //This is to rotate to direction moving
-
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
     }
 
 }
