@@ -10,6 +10,7 @@ public class CharacterMovement : MonoBehaviour
     public float rotationSpeed;
     private float horizontalInput;
     private float forwardInput;
+    private bool restartPressed;
     private Rigidbody rb;
 
     // Start is called before the first frame update
@@ -18,12 +19,15 @@ public class CharacterMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    void Update(){
+        horizontalInput = Input.GetAxis("Horizontal");
+        forwardInput = Input.GetAxis("Vertical");
+        restartPressed = Input.GetKeyDown("f");
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Vertical");
-
         transform.Rotate(0, (horizontalInput* rotationSpeed) * Time.deltaTime, 0);
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
 
@@ -37,7 +41,7 @@ public class CharacterMovement : MonoBehaviour
             FindObjectOfType<GameManager>().RestartLevel();
         }
 
-        if (Input.GetKeyDown("f")){
+        if (restartPressed){
                     FindObjectOfType<GameManager>().RestartLevel();
         }
     }
