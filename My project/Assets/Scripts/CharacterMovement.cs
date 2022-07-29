@@ -32,5 +32,9 @@ public class CharacterMovement : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
         }
+
+        if (rb.position.y < -5f){
+            FindObjectOfType<GameManager>().RestartLevel();
+        }
     }
 }
