@@ -36,5 +36,9 @@ public class CharacterMovement : MonoBehaviour
         if (rb.position.y < -5f){
             FindObjectOfType<GameManager>().RestartLevel();
         }
+
+        if (Input.GetKeyDown("f")){
+                    FindObjectOfType<GameManager>().RestartLevel();
+        }
     }
 }
