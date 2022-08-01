@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-
+    public float peddleSpeed;
     public float speed;
     public float jumpSpeed;
     public float rotationSpeed;
     private float horizontalInput;
     private float forwardInput;
     private bool restartPressed;
-    private Rigidbody rb;
+    public GameObject front;
+    public GameObject peddle;
+   // private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
     }
 
     void Update(){
@@ -31,18 +33,22 @@ public class CharacterMovement : MonoBehaviour
         transform.Rotate(0, (horizontalInput* rotationSpeed) * Time.deltaTime, 0);
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
 
+        front.transform.Rotate(0, ((horizontalInput * rotationSpeed) * Time.deltaTime) * 2 , 0);
+        peddle.transform.Rotate((forwardInput * Time.deltaTime)*300,0,0);
+       // }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-        }
 
-        if (rb.position.y < -5f){
-            FindObjectOfType<GameManager>().RestartLevel();
-        }
+      //  if (Input.GetKeyDown(KeyCode.Space))
+      //  {
+     //       rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+      //  }
 
-        if (restartPressed){
-                    FindObjectOfType<GameManager>().RestartLevel();
-        }
+       // if (rb.position.y < -5f){
+       //     FindObjectOfType<GameManager>().RestartLevel();
+      //  }
+
+       // if (restartPressed){
+                //    FindObjectOfType<GameManager>().RestartLevel();
+        //}
     }
 }

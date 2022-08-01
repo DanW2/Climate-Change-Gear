@@ -4,46 +4,52 @@ using UnityEngine;
 
 public class BikeMovement : MonoBehaviour
 {
-    public CharacterController controller;
-    private Vector3 playerVelocity;
-    private bool groundedPlayer;
-    private float groundedFixForce = -0.7f;          // Needed to fix a Unity error where it needs enough force with the floor to detect grounded.
-    private float playerSpeed = 0.02f;
-    private float jumpHeight = 1.0f;
-    private float gravityValue = -9.81f;
+    private float vInput;
+    private float hInput;
+    private float frontRotation;
+    public float rotationSpeed;
+    public float bikeSpeed;
+    public GameObject peddle;
+    public GameObject front;
+    public GameObject frontWheel;
+    public GameObject backWheel;
 
     private void Start()
     {
-        controller = GetComponent<CharacterController>();
+        frontRotation = 0.0f;
     }
 
-    void Update()
+    void Update(){
+        vInput = Input.GetAxis("Vertical");
+        hInput = Input.GetAxis("Horizontal");
+    }
+
+    void FixedUpdate()
     {
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
-        {
-            playerVelocity.y = groundedFixForce;
+        transform.Rotate(0, hInput * rotationSpeed * Time.deltaTime, 0);
+        transform.Translate(Vector3.forward * vInput * Time.deltaTime * bikeSpeed);
+
+        //Controls movement of parts of the bike while moving.
+        //float frontRotation = transform.localRotation.eulerAngles.x;
+       // float chasisRotation = transform.localRotation.eulerAngles.x;
+       // Debug.Log(chasisRotation);
+
+        //front.transform.Rotation(0, ((hInput * Time.deltaTime) * (rotationSpeed * 3)) * 2 , 0);
+        if(hInput>0 && frontRotation < 90.0f){
+            frontRotation += (hInput + rotationSpeed)*Time.deltaTime;
         }
 
-        //Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-       // controller.Move(move * Time.deltaTime * playerSpeed);
-
-        //if (move != Vector3.zero)
-       // {
-        //    gameObject.transform.forward = move;
-        //}
-
-        transform.Rotate(0, Input.GetAxis("Horizontal")  * .2f, 0);
-        var forward = transform.TransformDirection((Vector3.forward)*Input.GetAxis("Vertical")*playerSpeed);
-        controller.Move(forward);
-        // Changes the height position of the player..
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
-        {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue - groundedFixForce);
+        if(hInput<0 && frontRotation > -90.0f){
+            frontRotation -= (hInput + rotationSpeed)*Time.deltaTime;
         }
 
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
+        front.transform.localRotation  = Quaternion.Euler(0, frontRotation, 0);
+
+        float partRotation = (vInput * Time.deltaTime) * 300;
+
+        peddle.transform.Rotate(partRotation,0,0);
+        frontWheel.transform.Rotate(partRotation,0,0);
+        backWheel.transform.Rotate(partRotation,0,0);
     }
 
 }
