@@ -26,15 +26,6 @@ public class BikeMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.Rotate(0, hInput * rotationSpeed * Time.deltaTime, 0);
-        transform.Translate(Vector3.forward * vInput * Time.deltaTime * bikeSpeed);
-
-        //Controls movement of parts of the bike while moving.
-        //float frontRotation = transform.localRotation.eulerAngles.x;
-       // float chasisRotation = transform.localRotation.eulerAngles.x;
-       // Debug.Log(chasisRotation);
-
-        //front.transform.Rotation(0, ((hInput * Time.deltaTime) * (rotationSpeed * 3)) * 2 , 0);
         if(hInput>0 && frontRotation < 90.0f){
             frontRotation += (hInput + rotationSpeed)*Time.deltaTime;
         }
@@ -44,6 +35,10 @@ public class BikeMovement : MonoBehaviour
         }
 
         front.transform.localRotation  = Quaternion.Euler(0, frontRotation, 0);
+        //transform.localRotation = Quaternion.Euler(0, 0, (-frontRotation/5));
+        
+        transform.Rotate(0, (frontRotation * vInput)/90, 0);
+        transform.Translate(Vector3.forward * vInput * Time.deltaTime * bikeSpeed);
 
         float partRotation = (vInput * Time.deltaTime) * 300;
 
