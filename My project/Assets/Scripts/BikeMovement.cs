@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BikeMovement : MonoBehaviour
 {
+    private Rigidbody rb;
     private float vInput;
     private float hInput;
     private float frontRotation;
@@ -19,7 +20,7 @@ public class BikeMovement : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Rigidbody>().AddForce(Physics.gravity * addGravity, ForceMode.Acceleration);
+        rb = GetComponent<Rigidbody>();
         frontRotation = 0.0f;
         momentum = 0.0f;
     }
@@ -31,7 +32,8 @@ public class BikeMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        //if(grounded){};
+        bool frontGrounded = isGrounded(front);
+        Debug.Log(frontGrounded);
         if(momentum < 20 && vInput > 0){
         momentum += vInput * bikeAcceleration;
         }
@@ -40,7 +42,7 @@ public class BikeMovement : MonoBehaviour
             if(momentum > 0){
                  momentum -= 1.0f;
             }
-            if(momentum < 0){
+           if(momentum < 0){
                 momentum = 0;
             }
         }
@@ -52,11 +54,15 @@ public class BikeMovement : MonoBehaviour
         if(hInput< 0 && frontRotation > -90.0f){
             frontRotation -= (hInput + rotationSpeed) * Time.deltaTime;
         }
-
+        //Rotates front axel with turning.
         front.transform.localRotation  = Quaternion.Euler(0, frontRotation, 0);
         
-        transform.Rotate(0, (frontRotation * vInput) / steeringSensitivity, 0);
+        // Corrects the z rotation and turns wheel.
+        transform.Rotate(0, (frontRotation * vInput) / steeringSensitivity, -transform.rotation.eulerAngles.z);
+
+
         transform.Translate((Vector3.forward * Time.deltaTime * momentum));
+
 
         if(vInput > 0){
             float partRotation = (vInput * Time.deltaTime) * 300;
@@ -64,13 +70,15 @@ public class BikeMovement : MonoBehaviour
             peddle.transform.Rotate(partRotation,0,0);
             frontWheel.transform.Rotate(partRotation,0,0);
             backWheel.transform.Rotate(partRotation,0,0);
-    }
         }
+    }
 
 
 
-   // bool isGrounded(){
-       // return Physics.Raycast(transform.position);
-    //}
+   bool isGrounded(GameObject wheel){
+        Collider wheelCollider = wheel.GetComponent<Collider>();
+        float distanceToGround = wheelCollider.bounds.extents.y;
+        return Physics.Raycast(wheelCollider.transform.position, -Vector3.up, distanceToGround - 0.1f);
+    }
 
 }
