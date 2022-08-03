@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BikeMovement : MonoBehaviour
 {
+    
     private Rigidbody rb;
     private float vInput;
     private float hInput;
@@ -28,12 +29,16 @@ public class BikeMovement : MonoBehaviour
     void Update(){
         vInput = Input.GetAxis("Vertical");
         hInput = Input.GetAxis("Horizontal");
+
+        if(Input.GetKeyDown(KeyCode.F)){
+            FindObjectOfType<GameManager>().RestartLevel();
+        }
     }
 
     void FixedUpdate()
     {
-        bool frontGrounded = isGrounded(front);
-        Debug.Log(frontGrounded);
+        //bool frontGrounded = isGrounded(frontWheel);
+        //Debug.Log(frontGrounded);
         if(momentum < 20 && vInput > 0){
         momentum += vInput * bikeAcceleration;
         }
@@ -78,7 +83,7 @@ public class BikeMovement : MonoBehaviour
    bool isGrounded(GameObject wheel){
         Collider wheelCollider = wheel.GetComponent<Collider>();
         float distanceToGround = wheelCollider.bounds.extents.y;
-        return Physics.Raycast(wheelCollider.transform.position, -Vector3.up, distanceToGround - 0.1f);
+        return Physics.Raycast(wheelCollider.transform.position, new Vector3(0,-1,0), distanceToGround - 0.1f);
     }
 
 }

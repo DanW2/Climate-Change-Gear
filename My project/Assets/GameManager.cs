@@ -4,13 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    bool gameEnded = false;
-    public GameObject levelCompleteUI;
-    public GameObject player;
+    [SerializeField] GameObject levelCompleteUI;
+    [SerializeField] GameObject timeUI;
+    private bool gameEnded = false;
+    private float time;
     
+    void start(){
+        time = 0f;
+    }
 
-    public void NextLevel()
+    public void LoadEndMenu()
     {
+        Time.timeScale = 0f;
+        //timeUi.SetActive(false);
         levelCompleteUI.SetActive(true);
     }
 
@@ -31,5 +37,11 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public string getScore(){
+        time += Time.deltaTime;
+        string score = time.ToString("0.00");
+        return  score;
     }
 }
