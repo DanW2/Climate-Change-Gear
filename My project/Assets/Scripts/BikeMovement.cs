@@ -6,34 +6,21 @@ public class BikeMovement : MonoBehaviour
 {
     
     private Rigidbody rb;
-    [SerializeField] Transform backWheelGroundCheck;
-    [SerializeField] Transform frontWheelGroundCheck;
-    [SerializeField] LayerMask ground;
     private float vInput;
     private float hInput;
     private float frontRotation;
+    private bool jump;
+    [SerializeField] float jumpForce;
+    [SerializeField] float speed;
+    [SerializeField] LayerMask ground;
     [SerializeField] float rotationSpeed;
-    [SerializeField] float bikeAcceleration;
     [SerializeField] GameObject peddle;
     [SerializeField] GameObject front;
     [SerializeField] GameObject frontWheel;
+    [SerializeField] Transform frontWheelGroundCheck;
     [SerializeField] GameObject backWheel;
+    [SerializeField] Transform backWheelGroundCheck;
     [SerializeField] float steeringSensitivity;
-    private RaycastHit slopeHit;
-
-    
-    bool onSlope(){
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, 3.0f)){
-            if(slopeHit.normal != Vector3.up){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-        return false;
-    }
-
 
     private void Start()
     {
@@ -45,6 +32,9 @@ public class BikeMovement : MonoBehaviour
         vInput = Input.GetAxis("Vertical");
         hInput = Input.GetAxis("Horizontal");
 
+        if(Input.GetKeyDown(KeyCode.Space)){
+            jump = true;
+        }
         if(Input.GetKeyDown(KeyCode.F)){
             FindObjectOfType<GameManager>().RestartLevel();
         }
@@ -64,7 +54,7 @@ public class BikeMovement : MonoBehaviour
         //Rotates front axel with turning.
         front.transform.localRotation  = Quaternion.Euler(0, frontRotation, 0);
         
-        // Corrects the z rotation and turns wheel.
+        //Turns bike.
         transform.Rotate(0, (frontRotation * vInput) / steeringSensitivity, 0);
 
         extrasRotation();
@@ -73,27 +63,27 @@ public class BikeMovement : MonoBehaviour
     void move(){
         bool frontGrounded = isGrounded(frontWheelGroundCheck);
         bool backGrounded = isGrounded(backWheelGroundCheck);
-
         if(frontGrounded && backGrounded){
-            rb.AddForce(transform.forward * 100f * vInput);
+                rb.velocity = (transform.forward * vInput) * speed * Time.fixedDeltaTime;
+                //if(jump){
+                 //   rb.velocity = transform.up * jumpForce * Time.fixedDeltaTime;
+                //}
         }
     }
 
 
-   bool isGrounded(Transform checkObject){
+    bool isGrounded(Transform checkObject){
        return Physics.CheckSphere(checkObject.position, .1f, ground);
     }
 
 
     // Rotates the additional items on the bike like the wheel and peddle.
     void extrasRotation(){
-                if(vInput > 0){
             float partRotation = (vInput * Time.deltaTime) * 300;
 
             peddle.transform.Rotate(partRotation,0,0);
             frontWheel.transform.Rotate(partRotation,0,0);
             backWheel.transform.Rotate(partRotation,0,0);
         }
-    }
 
 }

@@ -10,6 +10,7 @@ public class LevelComplete : MonoBehaviour
     }
 
     public void restartLevel()  {
+        Time.timeScale = 1f;
         FindObjectOfType<GameManager>().RestartLevel();
     }
 
