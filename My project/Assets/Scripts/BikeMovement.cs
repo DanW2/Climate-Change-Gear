@@ -6,24 +6,39 @@ public class BikeMovement : MonoBehaviour
 {
     
     private Rigidbody rb;
+    [SerializeField] Transform backWheelGroundCheck;
+    [SerializeField] Transform frontWheelGroundCheck;
+    [SerializeField] LayerMask ground;
     private float vInput;
     private float hInput;
     private float frontRotation;
-    private float momentum;
-    public float rotationSpeed;
-    public float bikeAcceleration;
-    public GameObject peddle;
-    public GameObject front;
-    public GameObject frontWheel;
-    public GameObject backWheel;
-    public float steeringSensitivity;
-    public float addGravity;               // The game already has gravity. This just increases it on the bike alone.
+    [SerializeField] float rotationSpeed;
+    [SerializeField] float bikeAcceleration;
+    [SerializeField] GameObject peddle;
+    [SerializeField] GameObject front;
+    [SerializeField] GameObject frontWheel;
+    [SerializeField] GameObject backWheel;
+    [SerializeField] float steeringSensitivity;
+    private RaycastHit slopeHit;
+
+    
+    bool onSlope(){
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, 3.0f)){
+            if(slopeHit.normal != Vector3.up){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        return false;
+    }
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         frontRotation = 0.0f;
-        momentum = 0.0f;
     }
 
     void Update(){
@@ -37,20 +52,7 @@ public class BikeMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        //bool frontGrounded = isGrounded(frontWheel);
-        //Debug.Log(frontGrounded);
-        if(momentum < 20 && vInput > 0){
-        momentum += vInput * bikeAcceleration;
-        }
-
-        if(vInput == 0){
-            if(momentum > 0){
-                 momentum -= 1.0f;
-            }
-           if(momentum < 0){
-                momentum = 0;
-            }
-        }
+        move();
 
         if(hInput > 0 && frontRotation < 90.0f){
             frontRotation += (hInput + rotationSpeed) * Time.deltaTime;
@@ -63,27 +65,35 @@ public class BikeMovement : MonoBehaviour
         front.transform.localRotation  = Quaternion.Euler(0, frontRotation, 0);
         
         // Corrects the z rotation and turns wheel.
-        transform.Rotate(0, (frontRotation * vInput) / steeringSensitivity, -transform.rotation.eulerAngles.z);
+        transform.Rotate(0, (frontRotation * vInput) / steeringSensitivity, 0);
+
+        extrasRotation();
+    }
+
+    void move(){
+        bool frontGrounded = isGrounded(frontWheelGroundCheck);
+        bool backGrounded = isGrounded(backWheelGroundCheck);
+
+        if(frontGrounded && backGrounded){
+            rb.AddForce(transform.forward * 100f * vInput);
+        }
+    }
 
 
-        transform.Translate((Vector3.forward * Time.deltaTime * momentum));
+   bool isGrounded(Transform checkObject){
+       return Physics.CheckSphere(checkObject.position, .1f, ground);
+    }
 
 
-        if(vInput > 0){
+    // Rotates the additional items on the bike like the wheel and peddle.
+    void extrasRotation(){
+                if(vInput > 0){
             float partRotation = (vInput * Time.deltaTime) * 300;
 
             peddle.transform.Rotate(partRotation,0,0);
             frontWheel.transform.Rotate(partRotation,0,0);
             backWheel.transform.Rotate(partRotation,0,0);
         }
-    }
-
-
-
-   bool isGrounded(GameObject wheel){
-        Collider wheelCollider = wheel.GetComponent<Collider>();
-        float distanceToGround = wheelCollider.bounds.extents.y;
-        return Physics.Raycast(wheelCollider.transform.position, new Vector3(0,-1,0), distanceToGround - 0.1f);
     }
 
 }
