@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/Menu Scenes/Menu.unity
     guid: e37062bcf5ef99b43a4ff28daa624f1e
   - enabled: 1
-    path: Assets/Scenes/Woodland/Level 1.unity
-    guid: e2cc6f48b7378ae44a01c6f52e51f085
+    path: Assets/Scenes/Woodland/Bridge.unity
+    guid: 7852bd91315ac09458bf5f46c619db27
   - enabled: 1
-    path: Assets/Scenes/Woodland/Level 2.unity
-    guid: a73982310f4af504b89bc2e122abf0fd
+    path: Assets/Scenes/Woodland/Hill.unity
+    guid: e2cc6f48b7378ae44a01c6f52e51f085
   m_configObjects: {}
