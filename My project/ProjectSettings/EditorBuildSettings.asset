@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Woodland/Hill.unity
     guid: e2cc6f48b7378ae44a01c6f52e51f085
+  - enabled: 1
+    path: Assets/Scenes/Solutions/SchoolRide.unity
+    guid: 43a4908eec6e8764184c65007074a424
   m_configObjects: {}
