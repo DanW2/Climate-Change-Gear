@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: ba4d58a579affe049b9e9baf31d4c7e3, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: fab780f3bc0f7ee49a052bf89082e95f, type: 2}
   m_LightingSettings: {fileID: 807989294}
 --- !u!196 &4
 NavMeshSettings:
@@ -4268,8 +4268,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: An estimated 10,000 acres of rainforest are being destroyed everyday. That's
-    300 football fields worth every hour!
+  m_Text: An estimated 750 Billion tons of ice melts every year due to global warming!
 --- !u!222 &1554302513
 CanvasRenderer:
   m_ObjectHideFlags: 0

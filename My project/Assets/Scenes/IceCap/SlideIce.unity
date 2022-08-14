@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: ba4d58a579affe049b9e9baf31d4c7e3, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 2115e54e2dbe5064998ca9eaf93465ac, type: 2}
   m_LightingSettings: {fileID: 807989294}
 --- !u!196 &4
 NavMeshSettings:
@@ -966,7 +966,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166151692}
-  m_LocalRotation: {x: 0.0008550603, y: 0.97385234, z: -0.22715086, w: 0.0036658563}
+  m_LocalRotation: {x: 0.0008550525, y: 0.97385234, z: -0.22715086, w: 0.0036658228}
   m_LocalPosition: {x: -1217.2372, y: 30.87, z: 53.999767}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4185,7 +4185,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1549749623}
-  m_LocalRotation: {x: 0.0008550603, y: 0.97385234, z: -0.22715086, w: 0.0036658563}
+  m_LocalRotation: {x: 0.0008550525, y: 0.97385234, z: -0.22715086, w: 0.0036658228}
   m_LocalPosition: {x: -1217.2372, y: 30.87, z: 53.999767}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4263,8 +4263,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: An estimated 10,000 acres of rainforest are being destroyed everyday. That's
-    300 football fields worth every hour!
+  m_Text: We so far have lost almost 13% of Artic sea ice per decade!
 --- !u!222 &1554302513
 CanvasRenderer:
   m_ObjectHideFlags: 0
