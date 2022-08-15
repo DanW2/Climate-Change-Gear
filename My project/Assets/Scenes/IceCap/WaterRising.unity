@@ -1390,8 +1390,9 @@ GameObject:
   - component: {fileID: 512382513}
   - component: {fileID: 512382512}
   - component: {fileID: 512382516}
+  - component: {fileID: 512382517}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Sea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1487,6 +1488,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toolTip: {fileID: 2077761098}
+--- !u!114 &512382517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512382511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34bf2b0f01643da4cb39d37fbc7ac3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.0025
 --- !u!1 &543094984
 GameObject:
   m_ObjectHideFlags: 0
@@ -3056,7 +3070,7 @@ GameObject:
   - component: {fileID: 1230933833}
   - component: {fileID: 1230933832}
   m_Layer: 6
-  m_Name: Cylinder
+  m_Name: Island
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

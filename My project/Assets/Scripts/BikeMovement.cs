@@ -34,15 +34,18 @@ public class BikeMovement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space)){
             jump = true;
+        }else{
+            jump = false;
         }
+
         if(Input.GetKeyDown(KeyCode.F)){
             FindObjectOfType<GameManager>().RestartLevel();
         }
+
     }
 
     void FixedUpdate()
     {
-        move();
 
         if(hInput > 0 && frontRotation < 90.0f){
             frontRotation += (hInput + rotationSpeed) * Time.deltaTime;
@@ -57,17 +60,22 @@ public class BikeMovement : MonoBehaviour
         //Turns bike.
         transform.Rotate(0, (frontRotation * vInput) / steeringSensitivity, 0);
 
+        move();
         extrasRotation();
     }
 
     void move(){
         bool frontGrounded = isGrounded(frontWheelGroundCheck);
         bool backGrounded = isGrounded(backWheelGroundCheck);
+
         if(frontGrounded && backGrounded){
+            // Moves forward in the direction the bike is facing.
                 rb.velocity = (transform.forward * vInput) * speed * Time.fixedDeltaTime;
-                //if(jump){
-                 //   rb.velocity = transform.up * jumpForce * Time.fixedDeltaTime;
-                //}
+                if(jump){
+                rb.velocity += (transform.up * jumpForce);
+                }
+                
+
         }
     }
 
@@ -77,7 +85,7 @@ public class BikeMovement : MonoBehaviour
     }
 
 
-    // Rotates the additional items on the bike like the wheel and peddle.
+    // Rotates the additional items on the bike like the wheels and peddles.
     void extrasRotation(){
             float partRotation = (vInput * Time.deltaTime) * 300;
 
