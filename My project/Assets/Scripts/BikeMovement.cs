@@ -9,8 +9,6 @@ public class BikeMovement : MonoBehaviour
     private float vInput;
     private float hInput;
     private float frontRotation;
-    private bool jump;
-    [SerializeField] float jumpForce;
     [SerializeField] float speed;
     [SerializeField] LayerMask ground;
     [SerializeField] float rotationSpeed;
@@ -32,12 +30,6 @@ public class BikeMovement : MonoBehaviour
         vInput = Input.GetAxis("Vertical");
         hInput = Input.GetAxis("Horizontal");
 
-        if(Input.GetKeyDown(KeyCode.Space)){
-            jump = true;
-        }else{
-            jump = false;
-        }
-
         if(Input.GetKeyDown(KeyCode.F)){
             FindObjectOfType<GameManager>().RestartLevel();
         }
@@ -54,10 +46,10 @@ public class BikeMovement : MonoBehaviour
         if(hInput< 0 && frontRotation > -90.0f){
             frontRotation -= (hInput + rotationSpeed) * Time.deltaTime;
         }
-        //Rotates front axel with turning.
+        //Rotates front axle with turning.
         front.transform.localRotation  = Quaternion.Euler(0, frontRotation, 0);
         
-        //Turns bike.
+        //Turns bike to face the same direction as the front axle.
         transform.Rotate(0, (frontRotation * vInput) / steeringSensitivity, 0);
 
         move();
@@ -71,9 +63,6 @@ public class BikeMovement : MonoBehaviour
         if(frontGrounded && backGrounded){
             // Moves forward in the direction the bike is facing.
                 rb.velocity = (transform.forward * vInput) * speed * Time.fixedDeltaTime;
-                if(jump){
-                rb.velocity += (transform.up * jumpForce);
-                }
                 
 
         }

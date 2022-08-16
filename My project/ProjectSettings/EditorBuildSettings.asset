@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Solutions/Recycle.unity
     guid: 2e5cf44662e2b6a4b828e67b0d044cef
   - enabled: 1
-    path: Assets/Scenes/Solutions/WindTurbine 1.unity
+    path: Assets/Scenes/Solutions/WindTurbine.unity
     guid: 8e757f04e69dd2f46a856776f5e0fde5
   - enabled: 1
     path: Assets/Scenes/Solutions/SchoolRide.unity

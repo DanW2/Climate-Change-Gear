@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PauseGameMenu : MonoBehaviour
 {
-    public static bool isPaused = false;
+    private static bool isPaused = false;
     [SerializeField] GameObject pauseMenu;
     void Update()
     {
@@ -30,6 +30,7 @@ public class PauseGameMenu : MonoBehaviour
     }
 
     public void LoadGameMenu () {
+        Time.timeScale = 1f;
         FindObjectOfType<GameManager>().LoadMainMenu();
     }
 

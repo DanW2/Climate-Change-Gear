@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class CollisonRestart : MonoBehaviour
 {
@@ -8,15 +9,17 @@ public class CollisonRestart : MonoBehaviour
 
     void OnTriggerEnter (Collider other){
         if(other.tag == "Player"){
-        FindObjectOfType<GameManager>().RestartLevel();
-        StartCoroutine("WaitTwo");
+        StartCoroutine("WaitOne");
         }
     }
 
     // Uses game engine to wait and display message.
-    IEnumerator WaitTwo(){
+    IEnumerator WaitOne(){
         toolTip.SetActive(true);
-        yield return new WaitForSeconds(1200f);
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(1f);
+        Time.timeScale = 1f;
         toolTip.SetActive(false);
+        FindObjectOfType<GameManager>().RestartLevel();
     }
 }
