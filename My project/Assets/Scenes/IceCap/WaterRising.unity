@@ -1451,7 +1451,6 @@ GameObject:
   - component: {fileID: 438159426}
   - component: {fileID: 438159425}
   - component: {fileID: 438159424}
-  - component: {fileID: 438159423}
   m_Layer: 6
   m_Name: Island
   m_TagString: Untagged
@@ -1459,20 +1458,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &438159423
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438159422}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &438159424
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2137,7 +2122,6 @@ GameObject:
   - component: {fileID: 600483835}
   - component: {fileID: 600483834}
   - component: {fileID: 600483833}
-  - component: {fileID: 600483832}
   m_Layer: 6
   m_Name: Island
   m_TagString: Untagged
@@ -2145,20 +2129,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &600483832
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600483831}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &600483833
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3862,7 +3832,6 @@ GameObject:
   - component: {fileID: 1366045847}
   - component: {fileID: 1366045846}
   - component: {fileID: 1366045845}
-  - component: {fileID: 1366045844}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -3870,20 +3839,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1366045844
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1366045843}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1366045845
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4217,7 +4172,6 @@ GameObject:
   - component: {fileID: 1527139150}
   - component: {fileID: 1527139149}
   - component: {fileID: 1527139148}
-  - component: {fileID: 1527139147}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -4225,20 +4179,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1527139147
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527139146}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1527139148
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4521,7 +4461,6 @@ GameObject:
   - component: {fileID: 1589677277}
   - component: {fileID: 1589677276}
   - component: {fileID: 1589677275}
-  - component: {fileID: 1589677274}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -4529,20 +4468,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1589677274
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589677273}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1589677275
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4617,7 +4542,6 @@ GameObject:
   - component: {fileID: 1614683744}
   - component: {fileID: 1614683743}
   - component: {fileID: 1614683742}
-  - component: {fileID: 1614683741}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -4625,20 +4549,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1614683741
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614683740}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1614683742
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5524,7 +5434,6 @@ GameObject:
   - component: {fileID: 1824044515}
   - component: {fileID: 1824044514}
   - component: {fileID: 1824044513}
-  - component: {fileID: 1824044512}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -5532,20 +5441,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1824044512
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824044511}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1824044513
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5775,7 +5670,6 @@ GameObject:
   - component: {fileID: 1964740645}
   - component: {fileID: 1964740644}
   - component: {fileID: 1964740643}
-  - component: {fileID: 1964740642}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -5783,20 +5677,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1964740642
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964740641}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1964740643
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -2174,7 +2174,6 @@ GameObject:
   - component: {fileID: 600524744}
   - component: {fileID: 600524747}
   - component: {fileID: 600524746}
-  - component: {fileID: 600524745}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -2196,20 +2195,6 @@ Transform:
   m_Father: {fileID: 148322829}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &600524745
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600524743}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &600524746
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2843,7 +2828,6 @@ GameObject:
   - component: {fileID: 785262354}
   - component: {fileID: 785262357}
   - component: {fileID: 785262356}
-  - component: {fileID: 785262355}
   m_Layer: 6
   m_Name: Island
   m_TagString: Untagged
@@ -2865,20 +2849,6 @@ Transform:
   m_Father: {fileID: 148322829}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &785262355
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785262353}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &785262356
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3296,7 +3266,6 @@ GameObject:
   - component: {fileID: 877528030}
   - component: {fileID: 877528033}
   - component: {fileID: 877528032}
-  - component: {fileID: 877528031}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -3318,20 +3287,6 @@ Transform:
   m_Father: {fileID: 148322829}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &877528031
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877528029}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &877528032
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3392,7 +3347,6 @@ GameObject:
   - component: {fileID: 885980793}
   - component: {fileID: 885980796}
   - component: {fileID: 885980795}
-  - component: {fileID: 885980794}
   m_Layer: 6
   m_Name: Island
   m_TagString: Untagged
@@ -3414,20 +3368,6 @@ Transform:
   m_Father: {fileID: 148322829}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &885980794
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885980792}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &885980795
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3658,7 +3598,6 @@ GameObject:
   - component: {fileID: 1121064086}
   - component: {fileID: 1121064089}
   - component: {fileID: 1121064088}
-  - component: {fileID: 1121064087}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -3680,20 +3619,6 @@ Transform:
   m_Father: {fileID: 148322829}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1121064087
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121064085}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1121064088
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5582,7 +5507,6 @@ GameObject:
   - component: {fileID: 1907683924}
   - component: {fileID: 1907683927}
   - component: {fileID: 1907683926}
-  - component: {fileID: 1907683925}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -5604,20 +5528,6 @@ Transform:
   m_Father: {fileID: 148322829}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1907683925
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907683923}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1907683926
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5678,7 +5588,6 @@ GameObject:
   - component: {fileID: 1919821511}
   - component: {fileID: 1919821514}
   - component: {fileID: 1919821513}
-  - component: {fileID: 1919821512}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -5700,20 +5609,6 @@ Transform:
   m_Father: {fileID: 148322829}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1919821512
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919821510}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1919821513
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6008,7 +5903,6 @@ GameObject:
   - component: {fileID: 2063524891}
   - component: {fileID: 2063524894}
   - component: {fileID: 2063524893}
-  - component: {fileID: 2063524892}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -6030,20 +5924,6 @@ Transform:
   m_Father: {fileID: 148322829}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &2063524892
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063524890}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &2063524893
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7999,7 +7879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7dec205f62d94d42ae74b26764d77a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 10
   speed: 750
   ground:
     serializedVersion: 2
